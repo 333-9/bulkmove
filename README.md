@@ -7,13 +7,13 @@ Running bulkmove will open the current directory
 and let you edit the files in your editor.
 
 ## Options
-  - h  show short help and exit
-  - d  dry run - show the commands, but don't execute them
-  - p  print commands as they are executed
-  - q  don't print debug messages
-  - l  write changes to a logfile
-  - f file    don't open an editor, but read from a generated logfile
-  - e editor  use editor instead of `$EDITOR`
+  - `-h`  show short help and exit
+  - `-d`  dry run - show the commands, but don't execute them
+  - `-p`  print commands as they are executed
+  - `-q`  don't print debug messages
+  - `-l`  write changes to a logfile
+  - `-f file`    don't open an editor, but read from a generated logfile
+  - `-e editor`  use editor instead of `$EDITOR`
 
 ## Usage
 bulkmove should open your editor with a file that looks like this:
@@ -37,15 +37,15 @@ You can also move files to different directories:
 
 ## Installation
 Run `install.sh`.
-You can edit `dir` and `name` variables to suit your system.
+You can edit `dir` and `name` variables for your system.
 The default install is to `/usr/bin/bulkmove`.
 
 ## Example
 ``` sh
-bulkmove.sh -d -l -e vim *.h
+bulkmove -d -l -e vim *.h
 # edit all .h files and save the changes into a logfile without executing them.
 
-bulkmove.sh -f $f
+bulkmove -f .move
 # execute changes.
 ```
 
