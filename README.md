@@ -35,6 +35,11 @@ You can also move files to different directories:
      2	"baz/"
 ```
 
+## Installation
+Run `install.sh`.
+You can edit `dir` and `name` variables to suit your system.
+The default install is to `/usr/bin/bulkmove`.
+
 ## Example
 ``` sh
 bulkmove.sh -d -l -e vim *.h
