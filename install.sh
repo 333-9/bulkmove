@@ -4,4 +4,4 @@
 dir=/usr/bin
 name=bulkmove
 
-cp ./bulkmove.sh "$dir/$name"
+cp bulkmove.sh "$dir/$name"
