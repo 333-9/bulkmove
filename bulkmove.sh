@@ -3,10 +3,11 @@
 # vim: expandtab
 editor="${EDITOR:-'ed'}"
 cmd='move'
-escape="s/[\\ 	\"']/\\\\&/"
-movecmd='[ $0 = dry ] && alias mv="echo mv" rm="echo rm"
-  if   [ "$2" = //  ];   then  rm "$1"
-  elif [ "$1" != "$2" ]; then  mv "$1" "$2"; fi'
+escape='s/"/\"/g; s/^.*$/"&"/'
+movecmd=\
+'[ $0 = dry ] && alias mv="echo mv" rm="echo rm"
+if   [ "$2" = //  ];   then  rm "$1"
+elif [ "$1" != "$2" ]; then  mv "$1" "$2"; fi'
 
 err() { echo $1 >&2 ; exit 1; }
 
@@ -14,8 +15,7 @@ while [ "$1" ]; do
     case "$1" in
         (-d) cmd='dry';;
         (-e) shift; editor="$1";;
-        (-h) echo "usage: bulkmove [-d] [-e editor] [-f file ...]" >&2; exit;;
-        (-f) alias ls='while shift; do echo "$1"; done'; break;;
+        (-h) echo "usage: bulkmove [-d] [-e editor]" >&2; exit;;
     esac; shift
 done
 
